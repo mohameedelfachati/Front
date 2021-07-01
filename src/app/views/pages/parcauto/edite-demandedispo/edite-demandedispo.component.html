@@ -1,0 +1,208 @@
+<div class="kt-portlet portlet-3">
+	<div class="kt-portlet__head kt-bg-portlet-3">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="fas fa-address-card kt-font-inverse-brand"></i>
+			</span>
+			<h3 class="kt-portlet__head-title kt-font-inverse-brand">
+				{{operation}}
+			</h3>
+		</div>
+	</div>
+	<form novalidate [formGroup]="formGroup">
+		<div class="kt-portlet__body">
+			<div class="row">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">  Date de la demande:</label>
+				</div>
+				<div class="col-xl-6">
+					<input disabled type="text" formControlName="datedemande" name="datedemande" value="{{datedemande}}"
+						class="form-control">
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Date début de la mise à disposition:</label>
+				</div>
+				<div class="col-xl-6">
+					<input placeholder="Nombre de betes" type="text"
+						formControlName="datedebudispo" name="datedebudispo" class="form-control">
+					<span
+						*ngIf="formGroup.get('datedebudispo').touched && formGroup.get('datedebudispo').hasError('required')"
+						class="error">Veuillez servir le champ : Date début de la mise à disposition</span>
+				</div>
+			</div>
+			<div >
+				<div class="mt-2 mb-2">
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">Date de fin de la mise à disposition :</label>
+						</div>
+						<div class="col-xl-6">
+							<input type="text" placeholder="Numéro de sequence" formControlName="datefindispo"
+								name="datefindispo" class="form-control">
+							<span
+								*ngIf="formGroup.get('datefindispo').touched && formGroup.get('datefindispo').hasError('required')"
+								class="error">Veuillez servir le champ : date de fin de la mise à disposition</span>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">heure de début :</label>
+						</div>
+						<div class="col-xl-6">
+							<input type="text" formControlName="heurdebut" name="heurdebut" placeholder="Poids initiale"
+								class="form-control">
+							<span
+								*ngIf="formGroup.get('heurdebut').touched && formGroup.get('heurdebut').hasError('required')"
+								class="error">Veuillez servir le champ : heure de début</span>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">motif :</label>
+						</div>
+						<div class="col-xl-6">
+							<input type="text" formControlName="motif" name="motif"
+								placeholder="Poids de carcase" class="form-control">
+							<span
+								*ngIf="formGroup.get('motif').touched && formGroup.get('motif').hasError('required')"
+								class="error">Veuillez servir le champ : motif</span>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">Type de Véhicule :</label>
+						</div>
+						<div class="col-xl-6">
+							<select type="text" formControlName="poidsExploitable" name="poidsExploitable"
+								placeholder="Poids Exploitable" class="form-control">
+							<option value="4*4">4*4</option>
+							<option value="familial">familial</option>
+							<option value="race">race</option>
+							</select>
+							
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">Matricule <span class="ml-2 mr-2"
+									style="color: red; font-size: 22px;">*</span>:</label>
+						</div>
+						<div class="col-xl-6">
+							<select formControlName="matricule" class="custom-select form-control condidat ">
+								<option *ngFor="let type of iniFrom" value="{{type.matricule}}">
+									{{type.matricule}}
+								</option>
+							</select>
+							<span
+								*ngIf="formGroup.get('matricule').touched && formGroup.get('matricule').hasError('required')"
+								class="error">Veuillez servir le champ : vehicule</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">lieu de départ :</label>
+				</div>
+				<div class="col-xl-6">
+					<input  type="text" formControlName="lieudepart" name="lieudepart"
+						placeholder="Poids totale" class="form-control">
+					<span
+						*ngIf="formGroup.get('lieudepart').touched && formGroup.get('lieudepart').hasError('required')"
+						class="error">Veuillez servir le champ : lieu de départ</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">lieu d'arrivé :</label>
+				</div>
+				<div class="col-xl-6">
+					<input type="text" formControlName="lieuarrive" name="lieuarrive" placeholder="CIN du chevillard"
+						class="form-control">
+					<span *ngIf="formGroup.get('lieuarrive').touched && formGroup.get('lieuarrive').hasError('required')"
+						class="error">Veuillez servir le champ : lieu d'arrivé</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">division :</label>
+				</div>
+				<div class="col-xl-6">
+					<input type="text" formControlName="division" name="division" placeholder="Nom du chevillard"
+						class="form-control">
+					<span *ngIf="formGroup.get('division').touched && formGroup.get('division').hasError('required')"
+						class="error">Veuillez servir le champ : Nom du chevillard</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Service :</label>
+				</div>
+				<div class="col-xl-6">
+					<input type="text" formControlName="prenom" name="prenom" placeholder="Prénom du chevillard"
+						class="form-control">
+					<span *ngIf="formGroup.get('prenom').touched && formGroup.get('prenom').hasError('required')"
+						class="error">Veuillez servir le champ : Prénom du chevillard</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Nombre de bénéficiaire :</label>
+				</div>
+				<div class="col-xl-6">
+					<textarea class="form-control" formControlName="adresse" name="adresse" cols="7"
+						rows="7"></textarea>
+					<span *ngIf="formGroup.get('adresse').touched && formGroup.get('adresse').hasError('required')"
+						class="error">Veuillez servir le champ : Adresse du chevillard</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Bénéficiaire :</label>
+				</div>
+				<div class="col-xl-6">
+					<input disabled type="text" formControlName="montantTotal" name="montantTotal"
+						placeholder=">Montant totale" class="form-control">
+					<span
+						*ngIf="formGroup.get('montantTotal').touched && formGroup.get('montantTotal').hasError('required')"
+						class="error">Veuillez servir le champ : >Montant totale</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">pièce Jointes :</label>
+				</div>
+				<div class="col-xl-6">
+					<input disabled type="text" formControlName="dateFacture" value="{{date}}" name="dateFacture"
+						placeholder=">Date de facture" class="form-control">
+				</div>
+				
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">statut :</label>
+				</div>
+				<div class="col-xl-6">
+					<input  type="text" formControlName="dateFacture"  name="dateFacture"
+						placeholder=">Date de facture" class="form-control">
+				</div>
+				
+			</div>
+
+		</div>
+	</form>
+</div>
+<!-- end::section form -->
+<!--Action Section :: begin-->
+<div class="kt-portlet__head justify-content-center">
+	<div class="kt-portlet__head-label" align="right">
+		<button *ngIf="add" class="btn btn-outline-primary mr-3" type="submit"
+			(click)="ajouterAbattoir()">Ajouter</button>
+		<button *ngIf="edit" class="btn btn-outline-success mr-3" type="submit"
+			(click)="editerdemande()">Modifier</button>
+	</div>
+	<div class="espace_bloc"></div>
+</div>
+<!--Action Section :: end-->

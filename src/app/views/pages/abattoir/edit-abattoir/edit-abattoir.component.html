@@ -1,0 +1,194 @@
+<div class="kt-portlet portlet-3">
+	<div class="kt-portlet__head kt-bg-portlet-3">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="fas fa-address-card kt-font-inverse-brand"></i>
+			</span>
+			<h3 class="kt-portlet__head-title kt-font-inverse-brand">
+				{{operation}}
+			</h3>
+		</div>
+	</div>
+	<form novalidate [formGroup]="formGroup">
+		<div class="kt-portlet__body">
+			<div class="row">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Date Entrée:</label>
+				</div>
+				<div class="col-xl-6">
+					<input disabled type="text" formControlName="dateEntree" name="dateEntree" value="{{date}}"
+						class="form-control">
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Nombre de betes:</label>
+				</div>
+				<div class="col-xl-6">
+					<input (change)="addItem($event)" placeholder="Nombre de betes" type="text"
+						formControlName="nombreBete" name="nombreBete" class="form-control">
+					<span
+						*ngIf="formGroup.get('nombreBete').touched && formGroup.get('nombreBete').hasError('required')"
+						class="error">Veuillez servir le champ : Nombre de betes</span>
+				</div>
+			</div>
+			<div formArrayName="betes" *ngFor="let bete of formGroup.get('betes')['controls']; let i = index;">
+				<div [formGroupName]="i" class="mt-2 mb-2">
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">Numéro de sequence :</label>
+						</div>
+						<div class="col-xl-6">
+							<input type="text" placeholder="Numéro de sequence" formControlName="numeroSequence"
+								name="numeroSequence" class="form-control">
+							<span
+								*ngIf="formGroup.get('numeroSequence').touched && formGroup.get('numeroSequence').hasError('required')"
+								class="error">Veuillez servir le champ : Numéro de sequence</span>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">Poids initiale :</label>
+						</div>
+						<div class="col-xl-6">
+							<input type="text" formControlName="poidsInit" name="poidsInit" placeholder="Poids initiale"
+								class="form-control">
+							<span
+								*ngIf="formGroup.get('poidsInit').touched && formGroup.get('poidsInit').hasError('required')"
+								class="error">Veuillez servir le champ : Poids initiale</span>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">Poids de carcase :</label>
+						</div>
+						<div class="col-xl-6">
+							<input type="text" formControlName="poidsCarcasse" name="poidsCarcasse"
+								placeholder="Poids de carcase" class="form-control">
+							<span
+								*ngIf="formGroup.get('poidsCarcasse').touched && formGroup.get('poidsCarcasse').hasError('required')"
+								class="error">Veuillez servir le champ : Poids de carcase</span>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">Poids Exploitable :</label>
+						</div>
+						<div class="col-xl-6">
+							<input type="text" formControlName="poidsExploitable" name="poidsExploitable"
+								placeholder="Poids Exploitable" class="form-control">
+							<span
+								*ngIf="formGroup.get('poidsExploitable').touched && formGroup.get('poidsExploitable').hasError('required')"
+								class="error">Veuillez servir le champ : Poids Exploitable</span>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="col-xl-2">
+							<label class="title2 mt-2 float-left">Type d'espece <span class="ml-2 mr-2"
+									style="color: red; font-size: 22px;">*</span>:</label>
+						</div>
+						<div class="col-xl-6">
+							<select formControlName="typeEspece" class="custom-select form-control condidat ">
+								<option *ngFor="let type of iniFrom" value="{{type.id}}">
+									{{type.type}}
+								</option>
+							</select>
+							<span
+								*ngIf="formGroup.get('typeEspece').touched && formGroup.get('typeEspece').hasError('required')"
+								class="error">Veuillez servir le champ : Type d'espece :</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Poids totale :</label>
+				</div>
+				<div class="col-xl-6">
+					<input disabled type="text" formControlName="poidsTotal" name="poidsTotal"
+						placeholder="Poids totale" class="form-control">
+					<span
+						*ngIf="formGroup.get('poidsTotal').touched && formGroup.get('poidsTotal').hasError('required')"
+						class="error">Veuillez servir le champ : Poids totale</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">CIN du chevillard :</label>
+				</div>
+				<div class="col-xl-6">
+					<input type="text" formControlName="cin" name="cin" placeholder="CIN du chevillard"
+						class="form-control">
+					<span *ngIf="formGroup.get('cin').touched && formGroup.get('cin').hasError('required')"
+						class="error">Veuillez servir le champ : CIN du chevillard</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Nom du chevillard :</label>
+				</div>
+				<div class="col-xl-6">
+					<input type="text" formControlName="nom" name="nom" placeholder="Nom du chevillard"
+						class="form-control">
+					<span *ngIf="formGroup.get('nom').touched && formGroup.get('nom').hasError('required')"
+						class="error">Veuillez servir le champ : Nom du chevillard</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Prénom du chevillard :</label>
+				</div>
+				<div class="col-xl-6">
+					<input type="text" formControlName="prenom" name="prenom" placeholder="Prénom du chevillard"
+						class="form-control">
+					<span *ngIf="formGroup.get('prenom').touched && formGroup.get('prenom').hasError('required')"
+						class="error">Veuillez servir le champ : Prénom du chevillard</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Adresse du chevillard :</label>
+				</div>
+				<div class="col-xl-6">
+					<textarea class="form-control" formControlName="adresse" name="adresse" cols="7"
+						rows="7"></textarea>
+					<span *ngIf="formGroup.get('adresse').touched && formGroup.get('adresse').hasError('required')"
+						class="error">Veuillez servir le champ : Adresse du chevillard</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Montant totale :</label>
+				</div>
+				<div class="col-xl-6">
+					<input disabled type="text" formControlName="montantTotal" name="montantTotal"
+						placeholder=">Montant totale" class="form-control">
+					<span
+						*ngIf="formGroup.get('montantTotal').touched && formGroup.get('montantTotal').hasError('required')"
+						class="error">Veuillez servir le champ : >Montant totale</span>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-xl-2">
+					<label class="title2 mt-2 float-left">Date de facture :</label>
+				</div>
+				<div class="col-xl-6">
+					<input disabled type="text" formControlName="dateFacture" value="{{date}}" name="dateFacture"
+						placeholder=">Date de facture" class="form-control">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<!-- end::section form -->
+<!--Action Section :: begin-->
+<div class="kt-portlet__head justify-content-center">
+	<div class="kt-portlet__head-label" align="right">
+		<button *ngIf="add" class="btn btn-outline-primary mr-3" type="submit"
+			(click)="ajouterAbattoir()">Ajouter</button>
+		<button *ngIf="edit" class="btn btn-outline-success mr-3" type="submit"
+			(click)="editerAbattoir()">Modifier</button>
+	</div>
+	<div class="espace_bloc"></div>
+</div>
+<!--Action Section :: end-->

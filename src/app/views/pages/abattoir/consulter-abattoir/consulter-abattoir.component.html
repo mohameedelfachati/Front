@@ -1,0 +1,153 @@
+<div class="kt-portlet portlet-3">
+	<div class="kt-portlet__head kt-bg-portlet-3">
+		<div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+				<i class="fas fa-address-card kt-font-inverse-brand"></i>
+			</span>
+			<h3 class="kt-portlet__head-title kt-font-inverse-brand">
+				Consultation
+			</h3>
+		</div>
+	</div>
+    <div class="kt-portlet__body">
+        <div class="row">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">Date Entrée:</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled type="text"  name="dateEntree" value="{{abattoir.dateEntree}}"
+                    class="form-control">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">Nombre de betes:</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled placeholder="Nombre de betes" type="text"
+                  value="{{abattoir.lot.nombreBete}}"  name="nombreBete" class="form-control">               
+            </div>
+        </div>
+           <div class="mt-2"  *ngFor="let bete of abattoir.lot.betes" >
+            <div class="row mt-2">
+                <div class="col-xl-2">
+                    <label class="title2 mt-2 float-left">Numéro de sequence:</label>
+                </div>
+                <div class="col-xl-6">
+                    <input disabled placeholder="Nombre de betes" type="text"
+                      value="{{bete.numeroSequence}}"  name="nombreBete" class="form-control">                    
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xl-2">
+                    <label class="title2 mt-2 float-left">Poids initiale:</label>
+                </div>
+                <div class="col-xl-6">
+                    <input disabled placeholder="Nombre de betes" type="text"
+                      value="{{bete.poidsInit}}"  name="nombreBete" class="form-control">                   
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xl-2">
+                    <label class="title2 mt-2 float-left">Poids de carcase :</label>
+                </div>
+                <div class="col-xl-6">
+                    <input disabled placeholder="Nombre de betes" type="text"
+                      value="{{bete.poidsCarcasse}}"  name="nombreBete" class="form-control">                   
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xl-2">
+                    <label class="title2 mt-2 float-left">Poids Exploitable :</label>
+                </div>
+                <div class="col-xl-6">
+                    <input disabled placeholder="Nombre de betes" type="text"
+                      value="{{bete.poidsExploitable}}"  name="nombreBete" class="form-control">                   
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xl-2">
+                    <label class="title2 mt-2 float-left">Type d'espece :</label>
+                </div>
+                <div class="col-xl-6">
+                    <input disabled placeholder="Nombre de betes" type="text"
+                      value="{{bete.espece.type}}"  name="nombreBete" class="form-control">                
+                </div>
+            </div>
+
+           </div>
+        <div class="row mt-2">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">Poids totale :</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled type="text" formControlName="poidsTotal" value="{{abattoir.lot.poidsTotal}}" name="poidsTotal"
+                    placeholder="Poids totale" class="form-control">             
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">CIN du chevillard :</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled value="{{abattoir.chevillard.cin}}" type="text"  
+                    class="form-control">            
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">Nom du chevillard :</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled value="{{abattoir.chevillard.nom}}" type="text"  
+                class="form-control">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">Prénom du chevillard :</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled value="{{abattoir.chevillard.prenom}}" type="text" 
+                    class="form-control">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">Adresse du chevillard :</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled value="{{abattoir.chevillard.adresse}}" type="text"
+                class="form-control">
+               
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">Montant totale :</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled value="{{abattoir.facture.montantTotal}}" type="text" 
+                class="form-control">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-xl-2">
+                <label class="title2 mt-2 float-left">Date de facture :</label>
+            </div>
+            <div class="col-xl-6">
+                <input disabled value="{{abattoir.facture.dateFacture}}" type="text" 
+                class="form-control">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end::section form -->
+<!--Action Section :: begin-->
+<div class="kt-portlet__head justify-content-center">
+	<div class="kt-portlet__head-label" align="right">
+		<a class="btn btn-outline-secondary" routerLink="/abattoir/list">Retour</a>
+	</div>
+	<div class="espace_bloc"></div>
+</div>
+<!--Action Section :: end-->

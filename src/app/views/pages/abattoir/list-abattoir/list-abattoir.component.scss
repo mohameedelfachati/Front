@@ -1,0 +1,36 @@
+.title3{
+    color: #2b3f62 !important;
+    font-weight: bold !important;          
+}
+.title2{
+    color: #2b3f62 !important;
+    font-weight: 700 !important;          
+}
+.default{
+    margin-right: 2% !important;
+    color: white !important;
+}
+.error{
+    font-weight: bold;
+    color: red;
+}
+input.ng-touched.ng-invalid{
+    border-color: red;
+  }
+  input.ng-touched.ng-valid{
+    border-color: green;
+  }
+  select.ng-touched.ng-invalid{
+    border-color: red;
+  }
+  select.ng-touched.ng-valid{
+    border-color: green;
+  }
+
+
+  textarea.ng-touched.ng-invalid{
+    border-color: red;
+  }
+  textarea.ng-touched.ng-valid{
+    border-color: green;
+  }

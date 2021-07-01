@@ -1,0 +1,90 @@
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Liste des demandes de mise à disposition
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    &nbsp;
+                    <a href="javascript:; " routerLink="/parcauto/add" class="btn btn-success btn-elevate btn-icon-sm">
+                        <i class="la la-plus"></i> Ajouter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <table mat-table [dataSource]="Demandemisdispos" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date de la demande </th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="datedebut">
+            <th mat-header-cell *matHeaderCellDef> Date debut  </th>
+            <td mat-cell *matCellDef="let element"> {{element.datedebut}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="matricule">
+            <th mat-header-cell *matHeaderCellDef> Matricule </th>
+            <td mat-cell *matCellDef="let element"> {{element.matricule}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="heurfin">
+            <th mat-header-cell *matHeaderCellDef> heur fin </th>
+            <td mat-cell *matCellDef="let element"> {{element.heurfin}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="motif">
+            <th mat-header-cell *matHeaderCellDef> motif </th>
+            <td mat-cell *matCellDef="let element"> {{element.motif}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td>
+                <div class="row justify-content-center">
+                    <div class="col-xl-2 mr-2">
+                        <button class="btn btn-outline-secondary" (click)="consulterAbattoir()">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                    </div>
+                    <div class="col-xl-2 mr-2">
+                        <button class="btn  btn-outline-success" (click)="updateAbattoir()">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </div>
+                    <div class="col-xl-2">
+                        <button class="btn btn-outline-primary" (click)="deleteAbattoir()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <!-- <div class="row justify-content-center">
+        <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage"
+            [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)">
+        </ngb-pagination>
+    </div>
+    <hr> -->
+</div>
